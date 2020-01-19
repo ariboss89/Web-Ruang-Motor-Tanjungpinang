@@ -8,7 +8,26 @@
     <packaging>war</packaging>
 
     <name>ruang-motor-tanjung-pinang</name>
-
+    
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        
+        <repository>
+            <id>central maven repo</id>
+            <name>central maven repo https</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        
+    </repositories>
+    
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -248,5 +267,4 @@
             </build>
         </profile>
     </profiles>
-
 </project>
