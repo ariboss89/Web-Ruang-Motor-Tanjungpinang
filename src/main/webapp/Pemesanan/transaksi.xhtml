@@ -80,6 +80,7 @@
                             </p:column>
                             <p:column headerText="Jumlah" style="width: 100px;">
                                 <p:inputText id="idJumlahPesan" value="#{list.jumlahPesan}" disabled="#{list.mstBarang == null ? true : false}">
+                                    <p:ajax listener="#{pemesananMBean.cekJumlahPesan()}" update="idList, idTotalHarga, idJumlahPesan"/>
                                 </p:inputText>
                             </p:column>
                         </p:dataTable>

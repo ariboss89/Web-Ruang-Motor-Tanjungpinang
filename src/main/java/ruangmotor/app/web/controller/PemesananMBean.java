@@ -210,6 +210,10 @@ public class PemesananMBean extends AbstractManagedBean implements InitializingB
         RequestContext.getCurrentInstance().execute("PF('showDialogCetak').show()");
     }
 
+    public void cekJumlahPesan() {
+        System.out.println("listPemesananDtl : " + listPemesananDtl);
+    }
+
     public void totalHarga() {
         //cek stok minimal
         if (pemesananDtl.getJumlahPesan() != null) {
@@ -255,9 +259,11 @@ public class PemesananMBean extends AbstractManagedBean implements InitializingB
     }
 
     public void tambahBaris() {
+        System.out.println("listPemesananDtl : " + listPemesananDtl);
         pemesananDtl = new TrPemesananDtl();
         System.out.println("pemesananDtl : " + pemesananDtl);
         listPemesananDtl.add(pemesananDtl);
+        System.out.println("listPemesananDtl new : " + listPemesananDtl);
     }
 
 //    public void onChangeBayar() {
