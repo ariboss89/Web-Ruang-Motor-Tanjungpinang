@@ -33,7 +33,11 @@
                     <p:outputLabel value="Email" class="req-mandatory"/><p:outputLabel value=":"/>
                     <p:inputText value="#{supplierMBean.mstSupplier.email}"
                                  required="true" requiredMessage="Email tidak boleh kosong" 
-                                 style="width:18vw"/>
+                                 style="width:18vw"
+                                 validatorMessage="Format email tidak sesuai">
+                        <f:validateRegex
+                            pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                    </p:inputText>
                     <p:outputLabel value="Alamat" class="req-mandatory"/><p:outputLabel value=":"/>
                     <p:inputText value="#{supplierMBean.mstSupplier.alamat}"
                                  required="true" requiredMessage="Alamat tidak boleh kosong" 
@@ -47,7 +51,7 @@
                                  actionListener="#{supplierMBean.saveRecord()}"
                                  update="@form"
                                  process="@form">
-                    <p:ajax listener="#{supplierMBean.reload()}" delay="1600"/>
+                    <p:ajax listener="#{supplierMBean.delay()}" delay="1600"/>
                 </p:commandButton>
                 <p:commandButton value="Tutup" process="@this"
                                  icon="fa fa-close"

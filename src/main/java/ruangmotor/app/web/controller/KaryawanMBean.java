@@ -14,6 +14,7 @@ import static ruangmotor.app.web.util.AbstractManagedBean.showGrowl;
 import ruangmotor.app.web.util.LazyDataModelFilterJPA;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.faces.application.FacesMessage;
@@ -242,6 +243,7 @@ public class KaryawanMBean extends AbstractManagedBean implements InitializingBe
                     }
                 }
                 mstKaryawan.setStatus(MstKaryawan.Status.ACTIVE);
+                mstKaryawan.setCreatedAt(new Date());
                 karyawanRepo.save(mstKaryawan);
             } else {
                 System.out.println("update");
@@ -273,6 +275,7 @@ public class KaryawanMBean extends AbstractManagedBean implements InitializingBe
                     }
                 }
                 mstKaryawan.setStatus(MstKaryawan.Status.ACTIVE);
+                mstKaryawan.setCreatedAt(new Date());
                 karyawanRepo.save(mstKaryawan);
             }
             showGrowl(FacesMessage.SEVERITY_INFO, "Informasi", "Data berhasil disimpan");

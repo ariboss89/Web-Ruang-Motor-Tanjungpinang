@@ -34,6 +34,7 @@ import static ruangmotor.app.web.util.AbstractManagedBean.getRequestParam;
 import static ruangmotor.app.web.util.AbstractManagedBean.showGrowl;
 import ruangmotor.app.web.util.LazyDataModelFilterJPA;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
@@ -56,12 +57,14 @@ public class SupplierMBean extends AbstractManagedBean implements InitializingBe
     private String kodeSupplier;
     private String dalogHeader;
 
+    private String sukses = "";
+
 //    @Autowired
 //    private KotaRepo kotaRepo;
 //    private Kota kota;
 //    private List<Kota> listKota;
     public void init() {
-//        mstSupplier = new MstSupplier();
+        mstSupplier = new MstSupplier();
 //        kota = new Kota();
 //        listKota = kotaRepo.findAllByStatusOrderByNamaAsc(Kota.Status.ACTIVE);
     }
@@ -157,11 +160,14 @@ public class SupplierMBean extends AbstractManagedBean implements InitializingBe
         if (mstSupplierCek == null) {
             System.out.println("tambah");
             dalogHeader = "Tambah Supplier";
-            MstSupplier pSupplier = supplierRepo.findTop1ByStatusOrderByNamaSupplierAsc(MstSupplier.Status.ACTIVE);
+            MstSupplier pSupplier = supplierRepo.findTop1ByStatusOrderByKodeSupplierDesc(MstSupplier.Status.ACTIVE);
+            System.out.println("pSupplier : " + pSupplier);
             Integer nextSupplierId = pSupplier != null ? pSupplier.getSupplierId() + 1 : 1;
+            System.out.println("nextSupplierId : " + nextSupplierId);
             kodeSupplier = nextSupplierId.toString().length() == 1 ? "S00".concat(nextSupplierId.toString())
                     : nextSupplierId.toString().length() == 2 ? "S0".concat(nextSupplierId.toString())
                     : "S".concat(nextSupplierId.toString());
+            System.out.println("kodeSupplier : " + kodeSupplier);
             mstSupplier.setKodeSupplier(kodeSupplier);
         } else {
             System.out.println("update");
@@ -175,7 +181,7 @@ public class SupplierMBean extends AbstractManagedBean implements InitializingBe
         RequestContext.getCurrentInstance().execute("PF('showDialocAct').show()");
     }
 
-    public void saveRecord() throws InterruptedException {
+    public void saveRecord() throws InterruptedException, IOException {
         try {
             System.out.println("mstSupplier : " + mstSupplier);
             if (dalogHeader.equals("Tambah Supplier")) {
@@ -210,6 +216,7 @@ public class SupplierMBean extends AbstractManagedBean implements InitializingBe
                     }
                 }
                 mstSupplier.setStatus(MstSupplier.Status.ACTIVE);
+                mstSupplier.setCreatedAt(new Date());
                 supplierRepo.save(mstSupplier);
             } else {
                 System.out.println("update");
@@ -243,8 +250,10 @@ public class SupplierMBean extends AbstractManagedBean implements InitializingBe
                     }
                 }
                 mstSupplier.setStatus(MstSupplier.Status.ACTIVE);
+                mstSupplier.setCreatedAt(new Date());
                 supplierRepo.save(mstSupplier);
             }
+            sukses = "ok";
             showGrowl(FacesMessage.SEVERITY_INFO, "Informasi", "Data berhasil disimpan");
             RequestContext.getCurrentInstance().update("idList");
             RequestContext.getCurrentInstance().update("growl");
@@ -255,6 +264,8 @@ public class SupplierMBean extends AbstractManagedBean implements InitializingBe
             RequestContext.getCurrentInstance().update("growl");
         } finally {
             init();
+//            TimeUnit.SECONDS.sleep(3);
+//            reload();
         }
     }
 
@@ -276,5 +287,13 @@ public class SupplierMBean extends AbstractManagedBean implements InitializingBe
     public void reload() throws IOException {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
+    }
+
+    public void delay() throws InterruptedException, IOException {
+        System.out.println("sukses : " + sukses);
+        if (sukses.equals("ok")) {
+            TimeUnit.SECONDS.sleep(2);
+            reload();
+        }
     }
 }

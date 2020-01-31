@@ -50,7 +50,7 @@ WHERE tp.id = $P{PEMESANAN_ID};]]>
 				<text><![CDATA[RUANG MOTOR TANJUNG PINANG]]></text>
 			</staticText>
 			<textField pattern="">
-				<reportElement x="146" y="65" width="214" height="20" uuid="fde18121-e4c2-4034-8e65-0e3efbb400db"/>
+				<reportElement x="146" y="65" width="214" height="26" uuid="fde18121-e4c2-4034-8e65-0e3efbb400db"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -65,7 +65,7 @@ WHERE tp.id = $P{PEMESANAN_ID};]]>
 				<textFieldExpression><![CDATA[$F{nota}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd MMMMM yyyy">
-				<reportElement x="145" y="85" width="215" height="20" uuid="953bb3fe-2f27-4c02-ba9e-5b41051f8f82"/>
+				<reportElement x="145" y="96" width="215" height="20" uuid="953bb3fe-2f27-4c02-ba9e-5b41051f8f82"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -80,7 +80,7 @@ WHERE tp.id = $P{PEMESANAN_ID};]]>
 				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
-				<reportElement x="145" y="105" width="215" height="20" uuid="a91b8940-e2c9-4bef-b9a3-4a5202deee96"/>
+				<reportElement x="145" y="116" width="215" height="20" uuid="a91b8940-e2c9-4bef-b9a3-4a5202deee96"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -95,42 +95,42 @@ WHERE tp.id = $P{PEMESANAN_ID};]]>
 				<textFieldExpression><![CDATA[$F{supplier}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="16" y="65" width="100" height="20" uuid="d28f7825-723e-4efd-aad9-7ab819ecef95"/>
+				<reportElement x="16" y="65" width="100" height="26" uuid="d28f7825-723e-4efd-aad9-7ab819ecef95"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nota]]></text>
+				<text><![CDATA[Pemesanan Barang Ke Supplier]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="116" y="65" width="30" height="20" uuid="50c173a0-5f69-442f-b1bb-6144cfefa1ef"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="115" y="105" width="30" height="20" uuid="82f584c1-6a25-460d-9065-6bf28c7c91c4"/>
+				<reportElement x="116" y="65" width="30" height="26" uuid="50c173a0-5f69-442f-b1bb-6144cfefa1ef"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="15" y="105" width="100" height="20" uuid="434f846b-1853-4f1e-b90a-4c63b2e7ee33"/>
+				<reportElement x="115" y="116" width="30" height="20" uuid="82f584c1-6a25-460d-9065-6bf28c7c91c4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="116" width="100" height="20" uuid="434f846b-1853-4f1e-b90a-4c63b2e7ee33"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Supplier]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="15" y="85" width="100" height="20" uuid="4d2353d5-848f-42c1-bed5-52f3958407da"/>
+				<reportElement x="15" y="96" width="100" height="20" uuid="4d2353d5-848f-42c1-bed5-52f3958407da"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tanggal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="115" y="85" width="30" height="20" uuid="978fa7fb-a5ad-41a0-8eeb-dbfdcc13ea35"/>
+				<reportElement x="115" y="96" width="30" height="20" uuid="978fa7fb-a5ad-41a0-8eeb-dbfdcc13ea35"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>

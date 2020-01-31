@@ -39,11 +39,16 @@
                     <p:outputLabel value="Email" class="req-mandatory"/><p:outputLabel value=":"/>
                     <p:inputText value="#{karyawanMBean.mstKaryawan.email}"
                                  required="true" requiredMessage="Email tidak boleh kosong" 
-                                 style="width:18vw" converter="upperCaseConverter" styleClass="capitalized"/>
+                                 style="width:18vw" 
+                                 validatorMessage="Format email tidak sesuai">
+                        <f:validateRegex
+                            pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                    </p:inputText>
                     <p:outputLabel value="Telepon" class="req-mandatory"/><p:outputLabel value=":"/>
                     <p:inputText value="#{karyawanMBean.mstKaryawan.telepon}"
                                  required="true" requiredMessage="Harga Jual tidak boleh kosong" 
-                                 style="width:18vw" converter="upperCaseConverter" styleClass="capitalized"/>
+                                 style="width:18vw" converter="upperCaseConverter" styleClass="capitalized"
+                                 onkeypress="return isNumberKey()(event)"/>
                 </p:panelGrid>
             </p:panel>
             <p:separator/>

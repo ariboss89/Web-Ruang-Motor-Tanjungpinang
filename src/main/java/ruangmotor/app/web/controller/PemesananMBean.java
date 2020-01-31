@@ -215,6 +215,8 @@ public class PemesananMBean extends AbstractManagedBean implements InitializingB
     }
 
     public void totalHarga() {
+        supplier = supplierRepo.findTop1ByStatusOrderByNamaSupplierAsc(MstSupplier.Status.ACTIVE);
+        pemesanan.setMstSupplier(supplier);
         //cek stok minimal
         if (pemesananDtl.getJumlahPesan() != null) {
 //            System.out.println("stok minimal : " + pemesananDtl.getMstBarang().getStok_minimal());

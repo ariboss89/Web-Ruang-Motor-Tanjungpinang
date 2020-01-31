@@ -33,7 +33,7 @@
                                 <p:outputLabel value="Nama"/>
                                 <p:selectOneMenu value="#{pemesananMBean.pemesanan.mstSupplier}"
                                                  required="true" requiredMessage="Supplier tidak boleh kosong"
-                                                 converter="PickListConverter">
+                                                 converter="PickListConverter" disabled="true">
                                     <p:ajax update="idPanelSupplier"/>
                                     <f:selectItem itemValue="#{null}" itemLabel="PILIH SUPPLIER" />
                                     <f:selectItems value="#{pemesananMBean.listSupplier}"
@@ -70,7 +70,7 @@
                                 <p:selectOneMenu value="#{list.mstBarang}" 
                                                  required="true" requiredMessage="Barang tidak boleh kosong"
                                                  converter="PickListConverter">
-                                    <p:ajax listener="#{pemesananMBean.totalHarga()}" update="idList, idTotalHarga, idJumlahPesan"/>
+                                    <p:ajax listener="#{pemesananMBean.totalHarga()}" update="idList, idTotalHarga, idJumlahPesan, idPanelSupplier"/>
                                     <f:selectItem itemValue="#{null}" itemLabel="PILIH BARANG" />
                                     <f:selectItems value="#{pemesananMBean.listBarang}"
                                                    var="barang"
