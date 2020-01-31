@@ -33,7 +33,7 @@
                                 <p:outputLabel value="Nama"/>
                                 <p:selectOneMenu value="#{pemesananMBean.pemesanan.mstSupplier}"
                                                  required="true" requiredMessage="Supplier tidak boleh kosong"
-                                                 converter="PickListConverter" disabled="true">
+                                                 converter="PickListConverter" disabled="false">
                                     <p:ajax update="idPanelSupplier"/>
                                     <f:selectItem itemValue="#{null}" itemLabel="PILIH SUPPLIER" />
                                     <f:selectItems value="#{pemesananMBean.listSupplier}"
