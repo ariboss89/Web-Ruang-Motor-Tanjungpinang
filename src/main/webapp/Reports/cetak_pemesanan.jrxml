@@ -224,7 +224,7 @@ WHERE tp.id = $P{PEMESANAN_ID};]]>
 				<textElement textAlignment="Center">
 					<font isItalic="true"/>
 				</textElement>
-				<text><![CDATA[oO -- Terima Kasih Telah Berbelanja Dengan Kami -- Oo]]></text>
+				<text><![CDATA[oO -- Ruang Motor Tanjung PInang -- Oo]]></text>
 			</staticText>
 		</band>
 	</columnFooter>
